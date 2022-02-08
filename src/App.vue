@@ -1,20 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div id="nav" class="container">
+      <b-navbar toggleable="lg" type="dark" variant="">
+        <b-navbar-brand href="#"><img src="@/assets/imgs/logo.png" class="logo"></b-navbar-brand>
+
+        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+        <b-collapse id="nav-collapse" is-nav>
+          <b-navbar-nav class="ms-auto">
+            <b-nav-item href="">
+              <router-link to="/home">Home</router-link> |</b-nav-item
+            >
+            <b-nav-item href="">
+              <router-link to="/about">About</router-link> |</b-nav-item
+            >
+            <b-nav-item href="">
+              <router-link to="/contactus">Contactus</router-link> |
+            </b-nav-item>
+            <b-nav-item href="">
+              <router-link to="/service">Service</router-link>
+            </b-nav-item>
+          </b-navbar-nav>
+        </b-collapse>
+      </b-navbar>
+    </div>
+    <router-view/>
   </div>
 </template>
-
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
 
 <style>
 #app {
@@ -22,7 +34,18 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  /* color: var(--mainColor-); */
+}
+
+.logo{
+  height: 8vh;
+}
+#nav a {
+  font-weight: bold;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+#nav a.router-link-exact-active{
+  color: #42b983;
 }
 </style>
